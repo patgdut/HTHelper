@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "HTAlertView.h"
+#import "NSFileManager+HT.h"
+#include <dlfcn.h>
 
 @interface ViewController ()
 
@@ -36,6 +38,7 @@
     [self.dataSource addObject:@"Prevent NSMutableDictionary set nil value"];
     [self.dataSource addObject:@"iOS7 Custom AlertView"];
     [self.dataSource addObject:@"Memory usage"];
+    [self.dataSource addObject:@"Runtime method heck detect"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -98,6 +101,40 @@
             break;
         case 3: {
             NSLog(@"Current Memory Usage:%@",[[UIDevice currentDevice] memoryUsage]);
+        }
+            break;
+        case 4: {
+            Dl_info info;
+            IMP imp = class_getMethodImplementation(objc_getClass("NSFileManager"),sel_registerName("fileExistsAtPath:"));
+            if (dladdr(imp, &info)) {
+               
+                printf("dli_fname: %s\n", info.dli_fname);
+                printf("dli_sname: %s\n", info.dli_sname);
+                printf("dli_fbase: %p\n", info.dli_fbase);
+                printf("dli_saddr: %p\n", info.dli_saddr);
+                
+                if ([[NSString stringWithUTF8String:info.dli_sname] isEqualToString:@"-[NSFileManager fileExistsAtPath:]"]) {
+                    NSLog(@"NSFileManager is fine.");
+                    NSLog(@"Now replace NSFileManager's fileExistsAtPath method.");
+                    [NSObject swizzle:[NSFileManager class] from:@selector(fileExistsAtPath:) to:@selector(hacker_fileExistsAtPath:)];
+                    
+                    Dl_info info2;
+                    IMP imp2 = class_getMethodImplementation(objc_getClass("NSFileManager"),sel_registerName("fileExistsAtPath:"));
+                    if (dladdr(imp2, &info2)) {
+                        if (![[NSString stringWithUTF8String:info2.dli_sname] isEqualToString:@"-[NSFileManager fileExistsAtPath:]"]) {
+                            NSLog(@"Now,NSFileManager has been hacked!");
+                        }
+                    } else {
+                        NSLog(@"Now,NSFileManager has been hacked!");
+                    }
+                } else {
+                    NSLog(@"Now,NSFileManager has been hacked!");
+                }
+                
+               
+            } else {
+                NSLog(@"Now,NSFileManager has been hacked!");
+            }
         }
             break;
         default:

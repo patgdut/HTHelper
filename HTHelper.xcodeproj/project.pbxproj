@@ -26,6 +26,7 @@
 		C26E094A182BC53200E7C769 /* NSMutableDictionary+HT.m in Sources */ = {isa = PBXBuildFile; fileRef = C26E0947182BC53200E7C769 /* NSMutableDictionary+HT.m */; };
 		C26E094B182BC53200E7C769 /* NSMutableArray+HT.m in Sources */ = {isa = PBXBuildFile; fileRef = C26E0949182BC53200E7C769 /* NSMutableArray+HT.m */; };
 		C26E094E182BC54300E7C769 /* NSObject+HTRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = C26E094D182BC54300E7C769 /* NSObject+HTRuntime.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C2FB667D182C70FC001DDE06 /* NSFileManager+HT.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FB667C182C70FC001DDE06 /* NSFileManager+HT.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		C26E0949182BC53200E7C769 /* NSMutableArray+HT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+HT.m"; sourceTree = "<group>"; };
 		C26E094C182BC54300E7C769 /* NSObject+HTRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HTRuntime.h"; sourceTree = "<group>"; };
 		C26E094D182BC54300E7C769 /* NSObject+HTRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HTRuntime.m"; sourceTree = "<group>"; };
+		C2FB667B182C70FC001DDE06 /* NSFileManager+HT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+HT.h"; sourceTree = "<group>"; };
+		C2FB667C182C70FC001DDE06 /* NSFileManager+HT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+HT.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 				C26E0944182BC4AA00E7C769 /* UIView+HT.m */,
 				C26E0940182BC3D800E7C769 /* UIDevice+HT.h */,
 				C26E0941182BC3D800E7C769 /* UIDevice+HT.m */,
+				C2FB667B182C70FC001DDE06 /* NSFileManager+HT.h */,
+				C2FB667C182C70FC001DDE06 /* NSFileManager+HT.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 			files = (
 				C26E094E182BC54300E7C769 /* NSObject+HTRuntime.m in Sources */,
 				C26E094A182BC53200E7C769 /* NSMutableDictionary+HT.m in Sources */,
+				C2FB667D182C70FC001DDE06 /* NSFileManager+HT.m in Sources */,
 				C26E091D182BBDB600E7C769 /* ViewController.m in Sources */,
 				C26E0942182BC3D800E7C769 /* UIDevice+HT.m in Sources */,
 				C26E0917182BBDB600E7C769 /* AppDelegate.m in Sources */,
@@ -500,6 +506,7 @@
 				C26E0937182BBDB600E7C769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C26E0938182BBDB600E7C769 /* Build configuration list for PBXNativeTarget "HTHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +515,7 @@
 				C26E093A182BBDB600E7C769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
