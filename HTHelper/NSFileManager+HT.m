@@ -12,7 +12,7 @@
 
 - (BOOL)hacker_fileExistsAtPath:(NSString *)path {
     if ([path isEqualToString:@"/Applications/Cydia.app"]) {
-        return YES;
+        return NO;
     }
     return [self hacker_fileExistsAtPath:path];
 }
