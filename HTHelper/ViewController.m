@@ -113,6 +113,7 @@
                 printf("dli_fbase: %p\n", info.dli_fbase);
                 printf("dli_saddr: %p\n", info.dli_saddr);
                 
+                // Olny check dli_sname name,you should also check dli_fname or dli_saddr for safety!
                 if ([[NSString stringWithUTF8String:info.dli_sname] isEqualToString:@"-[NSFileManager fileExistsAtPath:]"]) {
                     NSLog(@"NSFileManager is fine.");
                     NSLog(@"Now replace NSFileManager's fileExistsAtPath method.");
